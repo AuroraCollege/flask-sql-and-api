@@ -1,6 +1,12 @@
 {
   "name": "SQL and APIs",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "containerEnv": {
+    "GITHUB_USER": "${localEnv:GITHUB_USER}",
+    "CLASS_CODE": "${localEnv:CLASS_CODE}",
+    "SERVER_DISCOVERY_URL": "https://raw.githubusercontent.com/AuroraCollege/codespace-monitor/refs/heads/main/server.json",
+    "WORKSPACE_FOLDER": "${containerWorkspaceFolder}"
+  },
   "postCreateCommand": "pip install -r requirements.txt && python lesson1_sql/build_club_db.py && python lesson2_api/03_scrabble_api/build_db.py",
   "forwardPorts": [5000],
   "portsAttributes": {
@@ -13,5 +19,6 @@
         "qwtel.sqlite-viewer"
       ]
     }
-  }
+  },
+  "postStartCommand": "nohup python3 ${containerWorkspaceFolder}/agent.py >>/tmp/student-monitor-agent.log 2>&1 </dev/null &"
 }
