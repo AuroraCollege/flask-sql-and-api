@@ -17,7 +17,13 @@
       "extensions": [
         "ms-python.python",
         "qwtel.sqlite-viewer"
-      ]
+      ],
+      "settings": {
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": [
+          "tests"
+        ]
+      }
     }
   },
   "postStartCommand": "nohup python3 ${containerWorkspaceFolder}/agent.py >>/tmp/student-monitor-agent.log 2>&1 </dev/null &"
