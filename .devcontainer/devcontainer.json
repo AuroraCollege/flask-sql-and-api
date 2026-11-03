@@ -1,0 +1,17 @@
+{
+  "name": "SQL and APIs",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "pip install -r requirements.txt && python lesson1_sql/build_club_db.py && python lesson2_api/03_scrabble_api/build_db.py",
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "5000": { "label": "Flask API", "onAutoForward": "openBrowser" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "qwtel.sqlite-viewer"
+      ]
+    }
+  }
+}
