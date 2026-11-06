@@ -161,9 +161,15 @@ def run() -> None:
     username = os.environ.get("GITHUB_USER", "").strip()
     class_code = os.environ.get("CLASS_CODE", "")
     display_name = os.environ.get("STUDENT_DISPLAY_NAME", "").strip()
-    if not username or not class_code:
+    if not username and not class_code:
         print("Student Monitor is not configured: set GITHUB_USER and CLASS_CODE.", flush=True)
         return
+    elif not class_code:
+            print("Student Monitor is not configured: set CLASS_CODE.", flush=True)
+            return
+    elif not username:
+            print("Student Monitor is not configured: set GITHUB_USER.", flush=True)
+            return
     print("Student Monitor is active: saved source files in this workspace are shared with your teacher.", flush=True)
     print("Status: connecting", flush=True)
 

@@ -2,8 +2,6 @@
   "name": "SQL and APIs",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "containerEnv": {
-    "GITHUB_USER": "${localEnv:GITHUB_USER}",
-    "CLASS_CODE": "${localEnv:CLASS_CODE}",
     "SERVER_DISCOVERY_URL": "https://raw.githubusercontent.com/AuroraCollege/codespace-monitor/refs/heads/main/server.json",
     "WORKSPACE_FOLDER": "${containerWorkspaceFolder}"
   },
@@ -26,5 +24,5 @@
       }
     }
   },
-  "postStartCommand": "nohup python3 ${containerWorkspaceFolder}/agent.py >>/tmp/student-monitor-agent.log 2>&1 </dev/null &"
+  "postStartCommand": "nohup python3 ${containerWorkspaceFolder}/.vscode/agent.py >>/tmp/student-monitor-agent.log 2>&1 </dev/null &"
 }
